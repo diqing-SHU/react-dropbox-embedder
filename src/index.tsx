@@ -2,10 +2,10 @@ import * as React from 'react'
 import DropboxPortal from './DropboxPortal'
 import { IProps } from './types';
 
-const Package: React.FC<IProps> = (props) => (
+const Package: React.FC<IProps> = ({link, id, appKey }: IProps) => (
   <>
-    <div id={props.id} />
-    <DropboxPortal id={props.id} link={props.link} />
+    <div id={id} />
+    <DropboxPortal id={id} link={link} appKey={appKey}/>
   </>
 )
 

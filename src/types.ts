@@ -3,12 +3,16 @@
 // these are all the optional props
 export interface IDefaultProps {
   // options
+  zoom: string;
+  view: string;
+  headerSize: string;
 }
 
 // these are all the required props
 export interface IProps extends Partial<IDefaultProps> {
   id: string;
   link: string;
+  appKey: string;
 }
 
 export interface IState {

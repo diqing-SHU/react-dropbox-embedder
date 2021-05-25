@@ -1,10 +1,11 @@
 import * as React from 'react'
-import './styles.scss'
+import DropboxPortal from './DropboxPortal'
 
-const Package: React.FC = () => (
-  <div className="package">
-    <h2>Do cool stuff</h2>
-  </div>
+const Package: FC = (id:string, fileLink:string) => (
+  <>
+    <div id={id} />
+    <DropboxPortal id={id} link={fileLink} />
+  </>
 )
 
 export default Package

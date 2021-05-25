@@ -1,22 +1,7 @@
 import { useEffect, useState, FC } from 'react';
 import { createPortal } from 'react-dom';
 import { IProps } from './types';
-
-// For loading dropbox script
-const loadDropbox = (callback: { (): void; (): void; }, appKey: string) => {
-  const existingScript = document.getElementById('dropboxjs');
-  if (!existingScript) {
-    const script = document.createElement('script');
-    script.src = 'https://www.dropbox.com/static/api/2/dropins.js';
-    script.id = 'dropboxjs';
-    script.setAttribute('data-app-key', appKey);
-    document.body.appendChild(script);
-    script.onload = () => {
-      if (callback) callback();
-    };
-  }
-  if (existingScript && callback) callback();
-}
+import loadDropbox from './loadDropbox';
 
 
 const DropboxPortal: FC<IProps> = ({zoom = 'fit', view = 'list', headerSize = 'normal', link, id, appKey }: IProps, children) => {

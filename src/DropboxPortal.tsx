@@ -1,12 +1,6 @@
 import { useEffect, useState, FC } from 'react';
 import { createPortal } from 'react-dom';
-
-export interface Props {
-  /** The user's name */
-  id: string;
-  /** Should the name be rendered in bold */
-  link: string;
-}
+import { IProps } from './types';
 
 // For loading dropbox script
 const loadDropbox = (callback: { (): void; (): void; }) => {
@@ -25,7 +19,7 @@ const loadDropbox = (callback: { (): void; (): void; }) => {
 }
 
 
-const DropboxPortal: FC<Props> = (props, children) => {
+const DropboxPortal: FC<IProps> = (props, children) => {
   const mount = document.getElementById(props.id);
   const [scriptloaded, setScriptloaded] = useState(false);
   const embededId = `${props.id}Embedded`;
